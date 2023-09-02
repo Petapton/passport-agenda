@@ -44,6 +44,7 @@ def login(cf, pwd, totp):
     while 1:
         try:
             driver.find_element(By.ID, "password").send_keys(totp.now())
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
             driver.find_element(By.ID, "autorizza").click()
             break
         except:
@@ -57,6 +58,7 @@ def login(cf, pwd, totp):
             pass
     while 1:
         try:
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
             driver.find_element(By.ID, "indexCittadino")
             break
         except:
